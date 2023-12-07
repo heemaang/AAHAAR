@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { checkValidData } from "./Validate";
 import { auth, provider } from "./Firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import Home from "./Home";
+import Home from "../screens/Home";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

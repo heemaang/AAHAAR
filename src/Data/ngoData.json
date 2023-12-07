@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "city": "City1",
+      "pincode": "12345",
+      "state": "State1",
+      "ngoName": "NGO 1",
+      "ngoLink": "https://ngo1link.com",
+      "ngoDescription": "Description of NGO 1"
+    },
+    {
+      "id": 2,
+      "city": "City2",
+      "pincode": "67890",
+      "state": "State2",
+      "ngoName": "NGO 2",
+      "ngoLink": "https://ngo2link.com",
+      "ngoDescription": "Description of NGO 2"
+    },
+    {
+      "id": 3,
+      "city": "City3",
+      "pincode": "54321",
+      "state": "State3",
+      "ngoName": "NGO 3",
+      "ngoLink": "https://ngo3link.com",
+      "ngoDescription": "Description of NGO 3"
+    }
+  ]
+  
