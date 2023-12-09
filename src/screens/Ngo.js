@@ -112,6 +112,7 @@ const NGOList = ({ data }) => {
           placeholder="Search by city or pincode"
           value={searchTermCityPincode}
           onChange={(e) => setSearchTermCityPincode(e.target.value)}
+          className='p-[10px 14px] flex items-center gap-8 self-stretch mt-[-30px] ml-[12%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-black bg-[var(--White, #FFF)] shadow-box'
         />
         <button onClick={handleSearchCityPincodeClick}>Search</button>
         <button disabled={loadingLocation} onClick={handleUseLocationClick}>
@@ -146,6 +147,7 @@ const NGOList = ({ data }) => {
           placeholder="Search by state"
           value={searchTermState}
           onChange={(e) => setSearchTermState(e.target.value)}
+          className="flex items-center gap-8 self-stretch mt-[-60px] ml-[63%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-[#c0b2b2] bg-[var(--White, #FFF)] shadow-box"
         />
         <button onClick={handleSearchStateClick}>Search</button>
       </div>

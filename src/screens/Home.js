@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import {useNavigate} from "react-router-dom"
+import Info from "../components/Info";
 
 
 export default function Home() {

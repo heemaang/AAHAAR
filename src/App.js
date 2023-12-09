@@ -1,7 +1,5 @@
 import Login from './components/Login';
 import './App.css';
-// import { Provider } from 'react';
-// import appStore from './components/AppStore';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './screens/Navbar';
 import Home from './screens/Home';
@@ -12,6 +10,7 @@ import Foodbank from './screens/Foodbank';
 import Ngo from './screens/Ngo';
 import Contactus from './screens/Contactus';
 import ngoData from './Data/ngoData.json';
+import Info from './components/Info';
 
 
 function App() {
@@ -28,6 +27,7 @@ function App() {
         <Route path="/contactus" element={<Contactus/>} />
         <Route path="/donateessentials" element={<DonateEssentials />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/info" element={<Info />} />
         {/* Add other routes */}
       </Routes>
     </Router>
