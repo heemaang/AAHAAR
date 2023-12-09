@@ -27,7 +27,7 @@ function App() {
         <Route path="/contactus" element={<Contactus/>} />
         <Route path="/donateessentials" element={<DonateEssentials />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/info" element={<Info />} />
+        <Route path="/footer" element={<Footer/>} />
         {/* Add other routes */}
       </Routes>
     </Router>
