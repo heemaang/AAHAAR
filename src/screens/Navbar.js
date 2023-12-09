@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="relative w-[1535px] h-[80px] bg-white-900">
+    <div className="relative w-[1519px] h-[80px] bg-white-900">
       <img
         className="absolute w-[76.316px] h-[70.047px] ml-[2rem] flex-shrink-0 filter drop-shadow-md"
         alt="Logo"
