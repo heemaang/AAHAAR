@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import {useNavigate} from "react-router-dom"
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 
 export default function Home() {
@@ -37,6 +39,10 @@ export default function Home() {
             Donate Now
           </button>
         </div>
+      </div>
+      <div>
+      <Contact/>
+      <Footer/>
       </div>
     </div>
   );
