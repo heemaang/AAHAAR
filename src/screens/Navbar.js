@@ -11,7 +11,7 @@ export default function Navbar() {
   };
   const handleRegisterClick = () => {
     // Redirect to the login page
-    navigate("/register");
+    navigate("/registrationform");
   }
 
   return (

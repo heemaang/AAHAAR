@@ -12,7 +12,7 @@ import Contact from './components/Contact';
 import ngoData from './Data/ngoData.json';
 // import Info from './components/Info';
 import Footer from './components/Footer';
-import Register from './screens/Register';
+import { RegistrationForm } from './screens/RegistrationForm';
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/donateessentials" element={<DonateEssentials />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/registrationform" element={<RegistrationForm />} />
         <Route path="/footer" element={<Footer/>} />
         {/* Add other routes */}
       </Routes>
