@@ -14,31 +14,39 @@ export default function Donate() {
   return (
     <div>
       <Navbar />
+      <div className="image">
+        <img src="donate2.png" alt="" />
+      </div>
       <div className="mt-[2rem] absolute ml-[18rem] w-[132vh]">
-        <p className="text-[#2A3342] text-center font-Poppins text-[60]px not-italic font-[700] leading-[72px] tracking-[-1.2px] text-[60px]">
-          Lorem ipsum dolor sit amet consectetur.
+        <p className="text-[#6B7280] text-center font-Poppins text-[60]px not-italic font-[700] leading-[72px] tracking-[-1.08px] text-[36px] mt-[-3%]">
+          Transform compassion into action.{" "}
+          <span className="text-[#232E40] text-center font-Poppins text-[60]px not-italic font-[700] leading-[72px] tracking-[-1.08px] text-[30px] mt-[-3%]">
+            Donate today, make a difference.
+          </span>
         </p>
-        <div className="mt-[2rem] absolute ml-[12rem] w-[79vh]">
+        {/* <div className="mt-[2rem] absolute ml-[12rem] w-[79vh]">
           <p className="text-[#556987] font-Poppins text-[20px] not-italic font-[500] leading-[30px] text-center ">
             Lorem ipsum dolor sit amet consectetur. Commodo id ut tellus metus
             vel. Ullamcorper mauris et imperdiet ornare.
           </p>
-        </div>
-        <div className="">
-          <button
-            onClick={handleDonateEssentialsClick}
-            className=" w-[14rem] flex w-302 h-56 p-[16px] justify-center items-center gap-[8px] flex-shrink-0 rounded-md bg-[#185013] shadow-md mt-[14rem] ml-[13rem] text-[#F0FDF4] font-[500] not-italic text-[18px] font-Poppins"
-          >
-            Donate Essentials
-          </button>
-        </div>
-        <div className="">
-          <button
-            onClick={handleDonateFoodClick}
-            className=" w-[14rem] flex w-302 h-56 p-[16px] justify-center items-center gap-[8px] flex-shrink-0 rounded-md bg-[#185013] shadow-md mt-[-58px] ml-[33rem] text-[#F0FDF4] font-[500] not-italic text-[18px] font-Poppins"
-          >
-            Donate Food
-          </button>
+        </div> */}
+        <div className="buttons absolute mt-[-24%]">
+          <div className=" ">
+            <button
+              onClick={handleDonateEssentialsClick}
+              className=" w-[14rem] flex w-302 h-56 p-[16px] justify-center items-center gap-[8px] flex-shrink-0 rounded-md bg-[#185013] shadow-md mt-[14rem] ml-[13rem] text-[#F0FDF4] font-[500] not-italic text-[18px] font-Poppins"
+            >
+              Donate Essentials
+            </button>
+          </div>
+          <div className="">
+            <button
+              onClick={handleDonateFoodClick}
+              className=" w-[14rem] flex w-302 h-56 p-[16px] justify-center items-center gap-[8px] flex-shrink-0 rounded-md bg-[#185013] shadow-md mt-[-58px] ml-[33rem] text-[#F0FDF4] font-[500] not-italic text-[18px] font-Poppins"
+            >
+              Donate Food
+            </button>
+          </div>
         </div>
       </div>
       {/* <div className="mt-[2rem] ml-[69rem] ">

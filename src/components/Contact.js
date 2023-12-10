@@ -12,7 +12,7 @@ import Navbar from '../screens/Navbar';
 export default function Contact() {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       <div className="badge" style={{paddingLeft: '30px', paddingTop: '55px'}}>
       <Badge pill bg="success">
           Contact Us  
