@@ -98,7 +98,7 @@ const NGOSearch = ({ data }) => {
       <div>
         {hasSearched &&
           (searchResult.length === 0 ? (
-            <p>NGO not found</p>
+            <p className=" ml-[40%] w-[285px] h-[67%]text-[32px] not-italic font-[800] text-center text-[#a14751] bg-[#ffffff] rounded-[31px] shadow-lg">NGO not found</p>
           ) : (
             searchResult.map((item, index) => (
               <div
