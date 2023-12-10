@@ -9,6 +9,10 @@ export default function Navbar() {
     // Redirect to the login page
     navigate("/login");
   };
+  const handleRegisterClick = () => {
+    // Redirect to the login page
+    navigate("/register");
+  }
 
   return (
     <div className="relative w-[1519px] h-[80px] bg-white-900">
@@ -31,11 +35,11 @@ export default function Navbar() {
         <Link to="/donate"> Donate</Link> 
         </div>
         <div className="relative w-fit mt-[-1.00px] font-text-md-medium font-[number:var(--text-md-medium-font-weight)] text-[#185013]text-[length:var(--text-md-medium-font-size)] tracking-[var(--text-md-medium-letter-spacing)] leading-[var(--text-md-medium-line-height)] whitespace-nowrap [font-style:var(--text-md-medium-font-style)] hover:text-[#778e8e]">
-        <Link to="/contactus"> Contact Us</Link> 
+        <Link to="/contact"> Contact Us</Link> 
         </div>
         <div>
-          <button className="rounded-md bg-green-800 shadow-md text-[#F0FDF4] font-poppins text-sm font-medium leading-[20px] h-[5vh] ml-[17rem] w-[16vh] mt-[-8px]">
-            Register
+          <button  onClick={handleRegisterClick }className="rounded-md bg-green-800 shadow-md text-[#F0FDF4] font-poppins text-sm font-medium leading-[20px] h-[5vh] ml-[17rem] w-[16vh] mt-[-8px]">
+           Register
           </button>
         </div>
         <div>

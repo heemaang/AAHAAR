@@ -8,9 +8,11 @@ import DonateFood from './components/DonateFood';
 import DonateEssentials from './components/DonateEssentials';
 import Foodbank from './screens/Foodbank';
 import Ngo from './screens/Ngo';
-import Contactus from './screens/Contactus';
+import Contact from './components/Contact';
 import ngoData from './Data/ngoData.json';
-import Info from './components/Info';
+// import Info from './components/Info';
+import Footer from './components/Footer';
+import Register from './screens/Register';
 
 
 function App() {
@@ -24,9 +26,10 @@ function App() {
         <Route path="/ngo" element={<Ngo data={ngoData} />} /> {/* Pass the data prop */}
         {/* <Route path="/ngo" element={<Ngo />} /> */}
         <Route path="/donatefood" element={<DonateFood />} />
-        <Route path="/contactus" element={<Contactus/>} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/donateessentials" element={<DonateEssentials />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/footer" element={<Footer/>} />
         {/* Add other routes */}
       </Routes>
