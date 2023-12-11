@@ -17,8 +17,8 @@ export default function Contact() {
       </div>
       <Container  style={{alignItems: 'center', justifyContent: 'center', maxWidth: '1286px', paddingTop: '55px'}}>
       <Row style={{paddingTop: '50px'}}>
-        <Col sm={6}><h2>Let's Stay Connected</h2>
-        <p>It's never been easier to get in touch with Flex. 
+        <Col sm={6}><h2 style={{fontSize: '35px', fontWeight: 'bold', marginTop: '-60px'}}>Let's Stay Connected</h2>
+        <p style={{marginTop: '8px'}}>It's never been easier to get in touch with Flex. 
             Call us, use our live chat widget or email and we'll get back to you as soon as possible!</p>
         </Col>
         <Col sm={6} style={{paddingLeft: '60px', paddingBottom: '50px'}}>
