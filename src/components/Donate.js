@@ -1,8 +1,13 @@
 import React from "react";
 import Navbar from "../screens/Navbar";
 import { useNavigate } from "react-router-dom";
+// import { Carousel } from 'flowbite-react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 
 export default function Donate() {
+
   const navigate = useNavigate();
 
   const handleDonateFoodClick = () => {
@@ -11,12 +16,32 @@ export default function Donate() {
   const handleDonateEssentialsClick = () => {
     navigate("/donateessentials");
   };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000, // Set the autoplay speed in milliseconds (e.g., 5000 for 5 seconds)
+  };
   return (
     <div>
       <Navbar />
-      <div className="image">
-        <img src="donate2.png" alt="" />
+      <Slider {...settings}>
+      <div>
+        <img className="max-w-full" src="donate2.png" alt="Slide 1" />
       </div>
+      <div>
+        <img className="max-w-full" src="donate1.png" alt="Slide 2" />
+      </div>
+      <div>
+        <img className="w-[1900px]" src="donate3.png" alt="Slide 3" />
+      </div>
+      <div>
+        <img className="w-[1920px]" src="donate4.png" alt="Slide 3" />
+      </div>
+    </Slider>
       <div className="mt-[2rem] absolute ml-[18rem] w-[132vh]">
         <p className="text-[#6B7280] text-center font-Poppins text-[60]px not-italic font-[700] leading-[72px] tracking-[-1.08px] text-[36px] mt-[-3%]">
           Transform compassion into action.{" "}
@@ -49,10 +74,6 @@ export default function Donate() {
           </div>
         </div>
       </div>
-      {/* <div className="mt-[2rem] ml-[69rem] ">
-        <img  className="w-[423px] h-[434]" src="donate.png
-        " alt="" srcset="" />
-      </div> */}
     </div>
   );
 }

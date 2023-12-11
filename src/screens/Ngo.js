@@ -66,15 +66,16 @@ const NGOSearch = ({ data }) => {
         type="text"
         id="searchInput"
         placeholder="Enter City or PIN Code"
+        required
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        className="p-[10px 14px] flex items-center gap-8 self-stretch mt-[-12px] ml-[12%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-black bg-[var(--White, #FFF)] shadow-box"
+        className="p-[10px 14px] flex items-center gap-8 self-stretch mt-[-12px] ml-[12%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-black bg-[var(--White, #FFF)] shadow-box font-Poppins h-[40px] p-[16px]"
       />
       <button
         onClick={searchByCityOrPin}
-        className="ml-[86vh] mt-[-26px] absolute border-collapse"
+        className="ml-[86vh] mt-[-26px] absolute border-collapse" 
       >
-        Search
+        <img className="mt-[-16px] w-[33px] ml-[-2px]"src="search.png" alt="error" />
       </button>
 
       <br />
@@ -84,17 +85,18 @@ const NGOSearch = ({ data }) => {
         type="text"
         id="stateInput"
         placeholder="Enter State"
+        required
         value={stateInput}
         onChange={(e) => setStateInput(e.target.value)}
-        className="flex items-center gap-8 self-stretch mt-[-77px] ml-[58%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-[#c0b2b2] bg-[var(--White, #FFF)] shadow-box  border-black"
+        className="flex items-center gap-8 self-stretch mt-[-96px] ml-[58%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-[#c0b2b2] bg-[var(--White, #FFF)] shadow-box  border-black font-Poppins h-[40px] p-[16px]"
       />
       <button
         onClick={searchByState}
         className="ml-[185vh] mt-[-26px] absolute border-collapse"
       >
-        Search
+         <img className='mt-[-16px] w-[33px] ml-[-2px]'src="search.png" alt="error" />
       </button>
-
+    
       <div>
         {hasSearched &&
           (searchResult.length === 0 ? (
