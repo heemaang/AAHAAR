@@ -23,7 +23,7 @@ export const RegistrationForm = () => {
   };
  
   return (
-    <form className="container">
+    <form className="Container">
       <div className="container0">
         <div className="container00">
           <div className="leftheading">
