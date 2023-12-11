@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { checkValidData } from "./Validate";
 import { auth, provider } from "./Firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {useNavigate} from "react-router-dom"
 import Home from "../screens/Home";
 import {
   createUserWithEmailAndPassword,
@@ -9,7 +10,9 @@ import {
 } from "firebase/auth";
 
 
+
 const Login = () => {
+  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -22,6 +25,7 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
+    console.log("Button clicked");
     // console.log(email);
 
     //validate form data
@@ -38,7 +42,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          // navigate("/home")
+          navigate("/Home")
           console.log(user);
         })
         .catch((error) => {
@@ -57,7 +61,7 @@ const Login = () => {
           const user = userCredential.user;
 
           console.log(user);
-          // navigate("/home")
+          navigate("/Home")
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -94,7 +98,6 @@ const Login = () => {
     <div className="flex  ">
       <div className="w-3/5">
         <img
-          // className="h-screen w-780px h-1024px "
           className="h-100 w-39"
           src="./Rectangle 1.png"
           alt="loginpage"

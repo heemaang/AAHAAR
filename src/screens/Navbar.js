@@ -16,6 +16,10 @@ export default function Navbar() {
     // Redirect to the login page
     navigate("/login");
   };
+  const handleRegisterClick = () => {
+    // Redirect to the login page
+    navigate("/registrationform");
+  }
 
   return (
     <div className="relative w-[1519px] h-[70px] bg-white-900">

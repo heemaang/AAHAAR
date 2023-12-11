@@ -6,10 +6,13 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import { Nav } from 'react-bootstrap';
+import Navbar from '../screens/Navbar';
 
 export default function Contact() {
   return (
     <>
+    {/* <Navbar/> */}
       <div className="badge" style={{paddingLeft: '30px', paddingTop: '55px'}}>
       <Badge pill bg="success">
           Contact Us  
