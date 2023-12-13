@@ -1,7 +1,6 @@
 .container {
-    max-width: 600px;
     margin: auto;
-    padding: 20px;
+    padding: 50px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -16,6 +15,7 @@
   
   .container00 {
     flex: 1;
+    
   }
   
   .leftheading {
@@ -57,7 +57,8 @@
   
   .bg-blue-500 {
     background-color: #28ab6e;
-    width: 600px;
+    width: 100%;
+
   }
   
   .text-white {
@@ -78,3 +79,9 @@
     margin-bottom: 5px;
   }
   
+  .logo-image {
+    flex: 1;
+    width: 76.316px;
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Adjust margin as needed */
+  }

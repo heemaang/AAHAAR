@@ -44,18 +44,20 @@ export const RegistrationForm = () => {
   return (
     <div className="container">
       <div className="container0">
-        <div className="container00">
-          <div className="leftheading">
-            Ahaar
+        <div className="mb-[20px]">
+          <div className="text-[65px] font-Poppins-Medium font-[700] mt-[-20px]">
+            Aahaar
             <img
-              className="absolute w-[76.316px] h-[70.047px] ml-[2rem] flex-shrink-0 filter drop-shadow-md"
+              className="absolute h-[65px] w-[70px] ml-[210px] mt-[-70px]"
               alt="Logo"
               src="logo.png"
             />
           </div>
-          <div className="smallhead">an uphaar to all</div>
+          <div className="text-[16px] font-Poppins-Medium font-[350] mt-[-15px] ml-[50px]">
+            an uphaar to all
+            </div>
         </div>
-        <div className="rightheading">
+        <div className="text-[43px] font-Poppins-Medium font-[700]">
           Join us and Register to be part of our community
         </div>
       </div>
