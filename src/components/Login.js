@@ -42,7 +42,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/Home")
+          navigate("/")
           console.log(user);
         })
         .catch((error) => {
@@ -61,7 +61,7 @@ const Login = () => {
           const user = userCredential.user;
 
           console.log(user);
-          navigate("/Home")
+          navigate("/")
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -79,6 +79,7 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+        navigate('/')
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })

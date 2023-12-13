@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../screens/RegistrationForm.css";
+import {useNavigate} from "react-router-dom"
 
 export const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -13,36 +14,16 @@ export const RegistrationForm = () => {
     city: "",
     fullAddress: "",
   });
-
+  const navigate = useNavigate();
+  const handleSubmitClick = async () => {
+    navigate("/");};
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  const handleSubmit = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/submitForm", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log("Form submitted successfully!");
-        // You can redirect or show a success message to the user here
-      } else {
-        console.error("Form submission failed");
-        // Handle error cases
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-    }
-  };
-
+ 
   return (
-    <div className="container">
+    <form className="Container">
       <div className="container0">
         <div className="mb-[20px]">
           <div className="text-[65px] font-Poppins-Medium font-[700] mt-[-20px]">
@@ -196,13 +177,13 @@ export const RegistrationForm = () => {
       <div className="container0">
         <div className="input">
           <button
-            className="bg-blue-500 text-white p-2 rounded"
-            onClick={handleSubmit}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-400"
+            onClick={handleSubmitClick}
           >
             Submit
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
