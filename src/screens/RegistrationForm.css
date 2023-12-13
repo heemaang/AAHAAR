@@ -1,4 +1,4 @@
-.container {
+.Container {
     margin: auto;
     padding: 50px;
     border: 1px solid #ddd;
@@ -18,21 +18,12 @@
     
   }
   
-  .leftheading {
-    font-size: 22px;
-    font-weight: bold;
-  }
   
   .smallhead {
     font-size: 10px;
     color: #666;
   }
-  
-  .rightheading {
-    flex: 2;
-    font-size: 17px;
-    font-weight: bold;
-  }
+
   
   .input {
     flex: 1;
