@@ -91,15 +91,14 @@ export default function Navbar() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
+                <button onClick={handleRegisterClick}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
                   NGOs
-                </a>
+                </button>
               )}
             </Menu.Item>
           </div>

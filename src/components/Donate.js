@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
+import UserDonatePage from "./UserDonatePage";
 
 export default function Donate() {
 
@@ -74,6 +75,7 @@ export default function Donate() {
           </div>
         </div>
       </div>
+      <UserDonatePage />
     </div>
   );
 }

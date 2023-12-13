@@ -55,12 +55,6 @@ const NGOSearch = ({ data }) => {
       <div className="image mt-[-55px]">
         <img className="p-[43px] mt-[27px]" src="ngo.png" alt="error" />
       </div>
-      <div>
-        <p className="text-[#2A3342] mt-[-47px] text-center text-[42px] leading-[62px] tracking-[1.65px] font-[800] not-italic  font-Poppins ">
-          Discover Nearby Food Banks : Connect with local resources through
-          <span className="font-[Poppins] text-[#185013]">AAHAAR</span>
-        </p>
-      </div>
       <label htmlFor="searchInput"></label>
       <input
         type="text"
@@ -69,13 +63,17 @@ const NGOSearch = ({ data }) => {
         required
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        className="p-[10px 14px] flex items-center gap-8 self-stretch mt-[-12px] ml-[12%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-black bg-[var(--White, #FFF)] shadow-box font-Poppins h-[40px] p-[16px]"
+        className="p-[10px 14px] flex items-center gap-8 self-stretch mt-[-50px] ml-[3%] w-[554px] rounded-[6px] border-[1px] border-solid border-black bg-[var(--White, #FFF)] shadow-box font-Poppins h-[48px] p-[16px]"
       />
       <button
         onClick={searchByCityOrPin}
-        className="ml-[86vh] mt-[-26px] absolute border-collapse" 
+        className="ml-[86vh] mt-[-31px] absolute border-collapse"
       >
-        <img className="mt-[-16px] w-[33px] ml-[-2px]"src="search.png" alt="error" />
+        <img
+          className="mt-[-16px] w-[33px] ml-[-2px]"
+          src="search.png"
+          alt="error"
+        />
       </button>
 
       <br />
@@ -88,19 +86,25 @@ const NGOSearch = ({ data }) => {
         required
         value={stateInput}
         onChange={(e) => setStateInput(e.target.value)}
-        className="flex items-center gap-8 self-stretch mt-[-96px] ml-[58%] w-[409px] h-[33px] rounded-[6px] border-[1px] border-solid border-[#c0b2b2] bg-[var(--White, #FFF)] shadow-box  border-black font-Poppins h-[40px] p-[16px]"
+        className="flex items-center gap-8 self-stretch mt-[-105px] ml-[58%] w-[554px] h-[48px] rounded-[6px] border-[1px] border-solid border-[#c0b2b2] bg-[var(--White, #FFF)] shadow-box  border-black font-Poppins p-[16px]"
       />
       <button
         onClick={searchByState}
-        className="ml-[185vh] mt-[-26px] absolute border-collapse"
+        className="ml-[134vh] mt-[-25px] absolute border-collapse"
       >
-         <img className='mt-[-16px] w-[33px] ml-[-2px]'src="search.png" alt="error" />
+        <img
+          className="mt-[-22px] w-[33px] ml-[31rem]"
+          src="search.png"
+          alt="error"
+        />
       </button>
-    
+
       <div>
         {hasSearched &&
           (searchResult.length === 0 ? (
-            <p className=" ml-[40%] w-[285px] h-[67%]text-[32px] not-italic font-[800] text-center text-[#a14751] bg-[#ffffff] rounded-[31px] shadow-lg">NGO not found</p>
+            <p className=" ml-[40%] w-[285px] h-[67%]text-[32px] not-italic font-[800] text-center text-[#a14751] bg-[#ffffff] rounded-[31px] shadow-lg">
+              NGO not found
+            </p>
           ) : (
             searchResult.map((item, index) => (
               <div
@@ -132,6 +136,12 @@ const NGOSearch = ({ data }) => {
               </div>
             ))
           ))}
+        <div className="mt-[6%]" >
+          <p className="text-[#2A3342] mt-[-47px] text-center text-[42px] leading-[62px] tracking-[1.65px] font-[800] not-italic  font-Poppins ">
+            Discover Nearby Food Banks : Connect with local resources through
+            <span className="font-[Poppins] text-[#185013]"> {" "}AAHAAR</span>
+          </p>
+        </div>
       </div>
       <Footer />
     </div>

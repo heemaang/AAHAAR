@@ -14,6 +14,7 @@ import Login from './components/Login';
 import { RegistrationForm } from './screens/RegistrationForm';
 import { useSpring, animated } from 'react-spring';
 import Contactus from './screens/Contactus';
+import Info from './screens/Info';
 
 // const LandingPage = () => {
 //   return (
@@ -89,6 +90,7 @@ const App = () => {
             <Route path="/ngo" element={<Ngo data={ngoData} />} />
             <Route path="/donatefood" element={<DonateFood />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/info" element={<Info />} />
             <Route path="/contactus" element={<Contactus/>} />
             <Route path="/donateessentials" element={<DonateEssentials />} />
             <Route path="/login" element={<Login />} />
