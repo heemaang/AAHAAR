@@ -75,7 +75,7 @@ export default function Donate() {
           </div>
         </div>
       </div>
-      <UserDonatePage />
+      {/* <UserDonatePage /> */}
     </div>
   );
 }
