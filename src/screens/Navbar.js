@@ -46,7 +46,7 @@ export default function Navbar() {
         </div>
         <Menu as="div" className="group relative inline-block text-left mt-[-5px] ml-[65px]">
       <div>
-        <Menu.Button className="inline-flex justify-center gap-x-1.5 rounded-md bg-[#185013] w-[23vh] h-[38px] px-3 py-1 text-sm font-semibold text-[white] ring-1 ring-inset ring-gray-300 group-hover:text-[#d7d7d7] hover:bg-gray-50">
+        <Menu.Button className="inline-flex justify-center gap-x-1.5 rounded-md bg-[#185013] w-[23vh] h-[38px] px-3 py-1 text-sm font-semibold text-[white] ring-1 ring-inset ring-gray-300 group-hover:text-[#063103] group-hover:bg-gray-50">
           Register
           <ChevronDownIcon className="w-[28px] mt-[1px] text-gray-400" aria-hidden="true" />
         </Menu.Button>
@@ -94,7 +94,7 @@ export default function Navbar() {
                 <button onClick={handleRegisterClick}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
+                    'block px-4 py-2 text-sm w-[160px] text-left'
                   )}
                 >
                   NGOs
