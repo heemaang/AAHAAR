@@ -23,8 +23,8 @@ export const RegistrationForm = () => {
   };
  
   return (
-    <form className="Container">
-      <div className="container0">
+    <form className="mx-auto p-10 border border-1 border-solid border-gray-300 rounded-lg shadow-md bg-white">
+      <div className="flex justify-between mb-15">
         <div className="mb-[20px]">
           <div className="text-[65px] font-Poppins-Medium font-[700] mt-[-20px]">
             Aahaar
@@ -42,7 +42,7 @@ export const RegistrationForm = () => {
           Join us and Register to be part of our community
         </div>
       </div>
-      <div className="container0">
+      <div className="flex justify-between mb-15">
         <div className="input">
           <span className="label" htmlFor="companyName">
             Company Name
@@ -70,8 +70,8 @@ export const RegistrationForm = () => {
           />
         </div>
       </div>
-      {/* ... Other code ... */}
-      <div className="container0">
+     
+      <div className="flex justify-between mb-15">
         <div className="input">
           <span className="label" htmlFor="contactInfo">
             Contact Info
@@ -99,8 +99,8 @@ export const RegistrationForm = () => {
           />
         </div>
       </div>
-      {/* ... Other code ... */}
-      <div className="container0">
+      
+      <div className="flex justify-between mb-15">
         <div className="input">
           <span className="label" htmlFor="goals">
             Goals
@@ -116,8 +116,8 @@ export const RegistrationForm = () => {
           ></textarea>
         </div>
       </div>
-      {/* ... Other code ... */}
-      <div className="container0">
+      
+      <div className="flex justify-between mb-15">
         <div className="input">
           <span className="label" htmlFor="AreaPincode">
             Pincode
@@ -145,8 +145,8 @@ export const RegistrationForm = () => {
           />
         </div>
       </div>
-      {/* ... Other code ... */}
-      <div className="container0">
+  
+      <div className="flex justify-between mb-15">
         <div className="input">
           <span className="label" htmlFor="city">
             City
@@ -174,7 +174,7 @@ export const RegistrationForm = () => {
           />
         </div>
       </div>
-      <div className="container0">
+      <div className="flex justify-between mb-15">
         <div className="input">
           <button
             className="bg-blue-500 text-white p-2 rounded hover:bg-blue-400"
