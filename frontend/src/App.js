@@ -101,7 +101,7 @@
 // export default App;
 
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './screens/Navbar';
 import Home from './screens/Home';
 import Donate from './components/Donate';
@@ -120,72 +120,258 @@ import Info from './screens/Info';
 import { FoodbanksForm } from './screens/FoodbanksForm';
 
 import ChatBot from 'react-simple-chatbot';
-import { Button, Dropdown } from 'semantic-ui-react';
-// import React, { useEffect, useState } from 'react';
+import { Button } from 'semantic-ui-react';
+import Signup from './components/Signup';
 
 const steps = [
   {
-    id: 'Greet',
-    message: 'Hello, Welcome to our shop',
-    trigger: 'Done',
-  },
-  {
-    id: 'Done',
-    message: 'Please enter your name!',
-    trigger: 'waiting1',
-  },
-  {
-    id: 'waiting1',
-    user: true,
-    trigger: 'Name',
-  },
-  {
-    id: 'Name',
-    message: 'Hi {previousValue}, Please select your issue',
-    trigger: 'issues',
-  },
-  {
-    id: 'issues',
-    options: [
-      {
-        value: 'React',
-        label: 'React',
-        trigger: 'React',
+    id: "Greet",        
+    message: "Hello, Welcome to Aahar",        
+    trigger: "Done",        
+  },        
+  {       
+    id: "Done",        
+    message: "Please enter your name!",        
+    trigger: "waiting1",        
+  },      
+  {      
+    id: "waiting1",      
+    user: true,      
+    trigger: "Name",      
+  },      
+  {       
+    id: "Name",     
+    message: "Hi {previousValue}, Please select one of the service",     
+    trigger: "services",     
+  },      
+  {      
+    id: "services",   
+    options: [   
+      {    
+        value: "Donate",   
+        label: "Donate",        
+        trigger: "Donate",       
       },
-      { value: 'Angular', label: 'Angular', trigger: 'Angular' },
-    ],
+      {    
+        value:   "More information on page",   
+        label:   "More information on page",        
+        trigger: "More information on page",       
+      },         
+      { value: "Support us", 
+      label: "Support us", 
+      trigger: "Support us" 
+    }, 
+      { value: "Search nearby", 
+      label:   "Search nearby", 
+      trigger: "Search nearby" ,
+    },      
+    ],       
   },
-  {
-    id: 'React',
-    message: 'Thanks for letting your React issue, Our team will resolve your issue ASAP',
-    end: true,
+  {      
+    id: "Donate",   
+    options: [   
+      {    
+        value: "Food",   
+        label: "Food",        
+        trigger: "Food",       
+      },
+      {    
+        value:   "Items",   
+        label:   "Items",        
+        trigger: "Items",       
+      },         
+      { 
+      value: "Money", 
+      label:   "Money", 
+      trigger: "Money" ,
+    },       
+    ], 
+  },    
+    {      
+      id: "Food",   
+      options: [   
+        {    
+          value:   "Packged food",   
+          label:   "Packged food",        
+          trigger: "Packged food",       
+        },
+        {    
+          value:   "cooked food",   
+          label:   "cooked food",        
+          trigger: "cooked food",       
+        },         
+      
+    ],     
   },
-  {
-    id: 'Angular',
-    message: 'Thanks for letting your Angular issue, Our team will resolve your issue ASAP',
-    end: true,
+  {      
+    id: "Money",   
+    options: [   
+      {    
+        value:   "click",   
+        label:   "click",        
+        trigger: "click",       
+      },
+     
+    
+  ],     
+},
+{      
+  id: "Items",   
+  options: [   
+    {    
+      value:   "Packged food",   
+      label:   "Packged food",        
+      trigger: "Packged food",       
+    },
+    {    
+      value:   "cooked food",   
+      label:   "cooked food",        
+      trigger: "cooked food",       
+    },         
+  
+],     
+},
+  {      
+    id: "Search nearby",   
+    options: [   
+      {    
+        value:  "Foodbanks",   
+        label:  "Foodbanks",        
+        trigger:"Foodbanks",       
+      },
+      {    
+        value:   "NGOs",   
+        label:   "NGOs",        
+        trigger: "NGOs",       
+      },         
+        
+    ],       
   },
+  {      
+    id: "Foodbanks",   
+    options: [   
+      {    
+        value:   "By pincode",   
+        label:   "By pincode",        
+        trigger: "By pincode",       
+      },
+      {    
+        value:   "By city name",   
+        label:   "By city name",        
+        trigger: "By city name",       
+      },         
+      { value: "By state name", 
+      label:   "By state name", 
+      trigger: "By state name" ,
+    }, 
+    { value: "By Foodbank name", 
+    label:   "By Foodbank name", 
+    trigger: "By Foodbank name" ,
+  },
+],
+},
+  {      
+    id: "NGOs",   
+    options: [   
+      {    
+        value:   "By pincode",   
+        label:   "By pincode",        
+        trigger: "By pincode",       
+      },
+      {    
+        value:   "By city name",   
+        label:   "By city name",        
+        trigger: "By city name",       
+      },         
+      { value: "By state name", 
+      label:   "By state name", 
+      trigger: "By state name" ,
+    }, 
+    { value: "By NGOs name", 
+    label:   "By NGOs name", 
+    trigger: "By NGOs name" ,
+  },
+
+    ],       
+  },
+
+  {      
+    id: "Packged food",   
+    message: "Information about Packaged food",        
+    end: true,       
+  },
+  {      
+    id: "cooked food",   
+    message: "Information about cooked food",        
+    end: true,       
+  },
+
+  {      
+    id: "click",   
+    message: "Information about clicking",        
+    end: true,       
+  },
+  
+
+  {       
+    id: "More information on page",       
+    message:        
+      "For further information ,click on below link",        
+    end: true,       
+  },       
+  {       
+    id: "Support us",       
+    message:       
+      "Support us by clicking on the below link",       
+    end: true,       
+  },
+  {       
+    id: "By pincode",       
+    message:        
+      "Search here",        
+    end: true,       
+  },
+  {       
+    id: "By city name",       
+    message:        
+      "Search here",        
+    end: true,       
+  },    
+  {       
+    id: "By state name",       
+    message:        
+      "Search here",        
+    end: true,       
+  },     
+  {       
+    id: "By Foodbank name",       
+    message:        
+      "Search here",        
+    end: true,       
+  },
+  {       
+    id: "By NGOs name",       
+    message:        
+      "Search here",        
+    end: true,       
+  },       
 ];
 
 const ChatBotComponent = () => {
   const [trigger, setTrigger] = useState(null);
 
   useEffect(() => {
-    if (trigger) {
-      // Use a delay to prevent rapid triggering of the next step
-      setTimeout(() => {
-        setTrigger(null);
-      }, 100);
-    }
+    return () => {
+      setTrigger(null);
+    };
   }, [trigger]);
 
   return (
     <ChatBot
       steps={steps}
-      floating={true} // This makes the chatbot floating
-      opened={true} // Open the chatbot by default
+      floating
+      opened
       headerTitle="AI Legal Decision System"
-      //botAvatar="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" // Set your own avatar image
       trigger={trigger}
       handleEnd={() => setTrigger(null)}
     />
@@ -225,14 +411,14 @@ const LandingPage = () => {
 
 const App = () => {
   const [showLandingPage, setShowLandingPage] = useState(true);
+  const [showChatBot, setShowChatBot] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setShowLandingPage(false);
+      setShowChatBot(true);
     }, 3000);
   }, []);
-
-  const [showChatBot, setShowChatBot] = useState(false);
 
   const handleChatBotToggle = () => {
     setShowChatBot(!showChatBot);
@@ -243,10 +429,8 @@ const App = () => {
       <Router>
         <Routes>
           {showLandingPage ? (
-            // Show the landing page during the specified time
             <Route path="/" element={<LandingPage />} />
           ) : (
-            // Show the main content after the landing page duration
             <>
               <Route path="/" element={<Navbar />} />
               <Route index element={<Home />} />
@@ -259,16 +443,18 @@ const App = () => {
               <Route path="/contactus" element={<Contactus />} />
               <Route path="/donateessentials" element={<DonateEssentials />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/registrationform" element={<NGORegistrationForm />} />
               <Route path="/foodbanksform" element={<FoodbanksForm />} />
               <Route path="/footer" element={<Footer />} />
-              {/* Add other routes */}
+              <Route path="/f" element={<DonateEssentials />} />
+              
             </>
           )}
         </Routes>
       </Router>
 
-      <div style={{ position: 'fixed', bottom: 20, right: 20, opacity: 150 }}>
+      <div style={{ position: 'fixed', bottom: 20, right: 20, opacity: 150, zIndex: 100 }}>
         <Button onClick={handleChatBotToggle} primary>
           <img
             src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
@@ -282,4 +468,3 @@ const App = () => {
 };
 
 export default App;
-

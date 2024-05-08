@@ -4,6 +4,6 @@ const router = express.Router();
 const foodbanksFormController = require('../controllers/foodbanksFormController');
 
 // Handle FoodbanksForm submissions
-router.post('/foodbanks-form', foodbanksFormController.submitFoodbanksForm);
+router.post('/register', foodbanksFormController.submitFoodbanksForm);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../screens/RegistrationForm.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const NGORegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -19,25 +20,19 @@ export const NGORegistrationForm = () => {
     website: "",
   });
   const navigate = useNavigate();
-
   const handleSubmitClick = async () => {
-    // Replace the following line with the actual API call to your backend
-    // You can use fetch or axios for this purpose
-    const response = await fetch('http://localhost:3001/api/ngo-registration-form', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await axios.post('http://localhost:3001/api/ngo-registration-form', formData);
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log('Form submitted successfully:', data.message);
-      navigate("/");
-    } else {
-      console.error('Error submitting form:', response.statusText);
-      // Handle the error as needed
+      if (response.status === 200) {
+        console.log('Form submitted successfully:', response.data.message);
+        navigate("/");
+      } else {
+        console.error('Error submitting form:', response.statusText);
+        // Handle the error as needed
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
     }
   };
 

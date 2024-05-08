@@ -5,4 +5,5 @@ const ngoRegistrationFormController = require('../controllers/ngoRegistrationFor
 
 router.post('/register', ngoRegistrationFormController.registerNgoRegistrationForm);
 
+
 module.exports = router;
