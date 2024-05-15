@@ -118,253 +118,298 @@ import { useSpring, animated } from 'react-spring';
 import Contactus from './screens/Contactus';
 import Info from './screens/Info';
 import { FoodbanksForm } from './screens/FoodbanksForm';
-
+import Map from './screens/map'
 import ChatBot from 'react-simple-chatbot';
 import { Button } from 'semantic-ui-react';
 import Signup from './components/Signup';
-
-const steps = [
-  {
-    id: "Greet",        
-    message: "Hello, Welcome to Aahar",        
-    trigger: "Done",        
-  },        
-  {       
-    id: "Done",        
-    message: "Please enter your name!",        
-    trigger: "waiting1",        
-  },      
-  {      
-    id: "waiting1",      
-    user: true,      
-    trigger: "Name",      
-  },      
-  {       
-    id: "Name",     
-    message: "Hi {previousValue}, Please select one of the service",     
-    trigger: "services",     
-  },      
-  {      
-    id: "services",   
-    options: [   
-      {    
-        value: "Donate",   
-        label: "Donate",        
-        trigger: "Donate",       
-      },
-      {    
-        value:   "More information on page",   
-        label:   "More information on page",        
-        trigger: "More information on page",       
-      },         
-      { value: "Support us", 
-      label: "Support us", 
-      trigger: "Support us" 
-    }, 
-      { value: "Search nearby", 
-      label:   "Search nearby", 
-      trigger: "Search nearby" ,
-    },      
-    ],       
-  },
-  {      
-    id: "Donate",   
-    options: [   
-      {    
-        value: "Food",   
-        label: "Food",        
-        trigger: "Food",       
-      },
-      {    
-        value:   "Items",   
-        label:   "Items",        
-        trigger: "Items",       
-      },         
-      { 
-      value: "Money", 
-      label:   "Money", 
-      trigger: "Money" ,
-    },       
-    ], 
-  },    
-    {      
-      id: "Food",   
-      options: [   
-        {    
-          value:   "Packged food",   
-          label:   "Packged food",        
-          trigger: "Packged food",       
-        },
-        {    
-          value:   "cooked food",   
-          label:   "cooked food",        
-          trigger: "cooked food",       
-        },         
-      
-    ],     
-  },
-  {      
-    id: "Money",   
-    options: [   
-      {    
-        value:   "click",   
-        label:   "click",        
-        trigger: "click",       
-      },
-     
-    
-  ],     
-},
-{      
-  id: "Items",   
-  options: [   
-    {    
-      value:   "Packged food",   
-      label:   "Packged food",        
-      trigger: "Packged food",       
-    },
-    {    
-      value:   "cooked food",   
-      label:   "cooked food",        
-      trigger: "cooked food",       
-    },         
-  
-],     
-},
-  {      
-    id: "Search nearby",   
-    options: [   
-      {    
-        value:  "Foodbanks",   
-        label:  "Foodbanks",        
-        trigger:"Foodbanks",       
-      },
-      {    
-        value:   "NGOs",   
-        label:   "NGOs",        
-        trigger: "NGOs",       
-      },         
-        
-    ],       
-  },
-  {      
-    id: "Foodbanks",   
-    options: [   
-      {    
-        value:   "By pincode",   
-        label:   "By pincode",        
-        trigger: "By pincode",       
-      },
-      {    
-        value:   "By city name",   
-        label:   "By city name",        
-        trigger: "By city name",       
-      },         
-      { value: "By state name", 
-      label:   "By state name", 
-      trigger: "By state name" ,
-    }, 
-    { value: "By Foodbank name", 
-    label:   "By Foodbank name", 
-    trigger: "By Foodbank name" ,
-  },
-],
-},
-  {      
-    id: "NGOs",   
-    options: [   
-      {    
-        value:   "By pincode",   
-        label:   "By pincode",        
-        trigger: "By pincode",       
-      },
-      {    
-        value:   "By city name",   
-        label:   "By city name",        
-        trigger: "By city name",       
-      },         
-      { value: "By state name", 
-      label:   "By state name", 
-      trigger: "By state name" ,
-    }, 
-    { value: "By NGOs name", 
-    label:   "By NGOs name", 
-    trigger: "By NGOs name" ,
-  },
-
-    ],       
-  },
-
-  {      
-    id: "Packged food",   
-    message: "Information about Packaged food",        
-    end: true,       
-  },
-  {      
-    id: "cooked food",   
-    message: "Information about cooked food",        
-    end: true,       
-  },
-
-  {      
-    id: "click",   
-    message: "Information about clicking",        
-    end: true,       
-  },
-  
-
-  {       
-    id: "More information on page",       
-    message:        
-      "For further information ,click on below link",        
-    end: true,       
-  },       
-  {       
-    id: "Support us",       
-    message:       
-      "Support us by clicking on the below link",       
-    end: true,       
-  },
-  {       
-    id: "By pincode",       
-    message:        
-      "Search here",        
-    end: true,       
-  },
-  {       
-    id: "By city name",       
-    message:        
-      "Search here",        
-    end: true,       
-  },    
-  {       
-    id: "By state name",       
-    message:        
-      "Search here",        
-    end: true,       
-  },     
-  {       
-    id: "By Foodbank name",       
-    message:        
-      "Search here",        
-    end: true,       
-  },
-  {       
-    id: "By NGOs name",       
-    message:        
-      "Search here",        
-    end: true,       
-  },       
-];
+import  NGODetails  from './NGODetails';
 
 const ChatBotComponent = () => {
   const [trigger, setTrigger] = useState(null);
+  const [pincode, setPincode] = useState(""); // State to store the entered PIN code
+  let capturedPincode = "";
+  const handlePincodeInput = (value) => {
+    setPincode(value);
+    setTrigger("ShowNGODetails"); // Trigger the step to display NGO details
+  };
 
-  useEffect(() => {
-    return () => {
-      setTrigger(null);
-    };
-  }, [trigger]);
+  const steps = [
+    {
+      id: "Greet",
+      message: "Hello, Welcome to our shop",
+      trigger: "Done",
+    },
+    {
+      id: "Done",
+      message: "Please enter your name!",
+      trigger: "waiting1",
+    },
+    {
+      id: "waiting1",
+      user: true,
+      trigger: "Name",
+    },
+    {
+      id: "Name",
+      message: "Hi {previousValue}, Please select one of the services",
+      trigger: "services",
+    },
+    {
+      id: "services",
+      options: [
+        {
+          value: "Donate",
+          label: "Donate",
+          trigger: "Donate",
+        },
+        {
+          value: "More information on page",
+          label: "More information on page",
+          trigger: "More information on page",
+        },
+        {
+          value: "Support us",
+          label: "Support us",
+          trigger: "Support us",
+        },
+        {
+          value: "Search nearby",
+          label: "Search nearby",
+          trigger: "Search nearby",
+        },
+      ],
+    },
+    {
+      id: "Donate",
+      options: [
+        {
+          value: "Food",
+          label: "Food",
+          trigger: "Food",
+        },
+        {
+          value: "Items",
+          label: "Items",
+          trigger: "Items",
+        },
+        {
+          value: "Money",
+          label: "Money",
+          trigger: "Money",
+        },
+      ],
+    },
+    {
+      id: "Food",
+      options: [
+        {
+          value: "Packaged food",
+          label: "Packaged food",
+          trigger: "Packaged food",
+        },
+        {
+          value: "cooked food",
+          label: "cooked food",
+          trigger: "cooked food",
+        },
+      ],
+    },
+    {
+      id: "Money",
+      options: [
+        {
+          value: "click",
+          label: "click",
+          trigger: "click",
+        },
+      ],
+    },
+    {
+      id: "Items",
+      options: [
+        {
+          value: "Packaged food",
+          label: "Packaged food",
+          trigger: "Packaged food",
+        },
+        {
+          value: "cooked food",
+          label: "cooked food",
+          trigger: "cooked food",
+        },
+      ],
+    },
+    {
+      id: "Search nearby",
+      options: [
+        {
+          value: "Foodbanks",
+          label: "Foodbanks",
+          trigger: "Foodbanks",
+        },
+        {
+          value: "NGOs",
+          label: "NGOs",
+          trigger: "NGOs",
+        },
+      ],
+    },
+    {
+      id: "Foodbanks",
+      options: [
+        {
+          value: "By pincode",
+          label: "By pincode",
+          trigger: "By pincode",
+        },
+        {
+          value: "By city name",
+          label: "By city name",
+          trigger: "By city name",
+        },
+        {
+          value: "By state name",
+          label: "By state name",
+          trigger: "By state name",
+        },
+        {
+          value: "By Foodbank name",
+          label: "By Foodbank name",
+          trigger: "By Foodbank name",
+        },
+      ],
+    },
+    {
+      id: "NGOs",
+      options: [
+        {
+          value: "By pincode",
+          label: "By pincode",
+          trigger: "By pincode",
+        },
+        {
+          value: "By city name",
+          label: "By city name",
+          trigger: "By city name",
+        },
+        {
+          value: "By state name",
+          label: "By state name",
+          trigger: "By state name",
+        },
+        {
+          value: "By NGOs name",
+          label: "By NGOs name",
+          trigger: "By NGOs name",
+        },
+      ],
+    },
+    {
+      id: "Packaged food",
+      message: "Information about Packaged food",
+      end: true,
+    },
+    {
+      id: "cooked food",
+      message: "Information about cooked food",
+      end: true,
+    },
+    {
+      id: "click",
+      message: "Information about clicking",
+      end: true,
+    },
+    {
+      id: "More information on page",
+      message: "For further information, feel free to ask any questions.",
+      trigger: "UserQuestion",
+    },
+    {
+      id: "UserQuestion",
+      user: true,
+      trigger: "what does the website do?",
+    },
+    {
+      id: "what does the website do?",
+      message: "Our website is aimed at providing support and information about NGOs.",
+      trigger: "For further information, feel free to ask any questions.",
+    },
+
+    {
+      id: "For further information, feel free to ask any questions.",
+      user: true,
+      trigger: "How will i get the ngos list?",
+    },
+
+    {
+      id: "How will i get the ngos list?",
+      message: "Go to the provided url you will find it. https://youtube.com",
+      end: true,
+    },
+     
+    {
+      id: "Support us",
+      message: "Support us by clicking on the below link",
+      end: true,
+    },
+    {
+      id: "By pincode",
+      message: "Search here",
+      trigger: "waitForPINInput",
+    },
+    {
+      id: "waitForPINInput",
+      message: "Please enter the PIN code:",
+      trigger: "CapturePINCodeInput",
+    },
+    {
+      id: "CapturePINCodeInput",
+      user: true,
+      validator: (value) => {
+        capturedPincode = Number(value); // Update the globally accessible variable
+        return true; // Always return true to proceed to the next step
+      },
+      trigger: "ShowNGODetails", // Trigger the next step after capturing the PIN code
+    },
+    {
+      id: "ShowNGODetails",
+      component: ({ previousValue }) => {
+        if (capturedPincode) {
+          return <NGODetails pincode={capturedPincode} />;
+        } else {
+          return "No PIN code provided.";
+        }
+      },
+      end: true,
+    },
+    
+    {
+      id: "By city name",
+      message: "Search here",
+      end: true,
+    },
+    {
+      id: "By state name",
+      message: "Search here",
+      end: true,
+    },
+    {
+      id: "By Foodbank name",
+      message: "Search here",
+      end: true,
+    },
+    {
+      id: "By NGOs name",
+      message: "Please enter the name of the NGO",
+      trigger: "NGOName",
+    },
+    {
+      id: "NGOName",
+      user: true,
+      end:true,
+    },
+  ];
+
 
   return (
     <ChatBot
@@ -448,6 +493,7 @@ const App = () => {
               <Route path="/foodbanksform" element={<FoodbanksForm />} />
               <Route path="/footer" element={<Footer />} />
               <Route path="/f" element={<DonateEssentials />} />
+              <Route path="/map" element={<Map />} />
               
             </>
           )}

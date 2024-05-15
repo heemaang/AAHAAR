@@ -49,6 +49,39 @@ const NGOSearch = ({ data }) => {
     setHasSearched(true);
   };
 
+  const handleLocationClick = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+  
+          try {
+            // Fetch the location information based on coordinates using Nominatim
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
+            const data = await response.json();
+            if (data.address) {
+              const { state, postcode } = data.address;
+              setStateInput(state);
+              setSearchInput(postcode);
+            } else {
+              console.error("Location information not found.");
+            }
+          } catch (error) {
+            console.error("Error getting location information:", error);
+          }
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+  
+  
+
   return (
     <div>
       <Navbar />
@@ -98,6 +131,8 @@ const NGOSearch = ({ data }) => {
           alt="error"
         />
       </button>
+      
+      
 
       <div>
         {hasSearched &&
@@ -124,22 +159,24 @@ const NGOSearch = ({ data }) => {
                       {item.ngo.NGO} - {item.ngo.ADDRESS}, {item.city},{" "}
                       {item.state}
                     </p>
-                    {/* {item.ngo.NGO} - {item.ngo.ADDRESS}, {item.city}, {item.state} */}
                   </li>
                 </ul>
-                {/* <p className="w-[1095px] text-[#2A3342] font-Poppins text-[42px] not-italic font-[700] leading-[92px]">
-                Foodor : A Food bank for all needy
-              </p>
-              <p className="w-[741px] font-Poppins font-[600] not-italic text-[20px]">
-                Food Bank in Rajapur, Mainpura, Patna, Bihar, IN
-              </p> */}
               </div>
             ))
           ))}
-        <div className="mt-[6%]" >
+        <div className="mt-[6%]">
           <p className="text-[#2A3342] mt-[-47px] text-center text-[42px] leading-[62px] tracking-[1.65px] font-[800] not-italic  font-Poppins ">
             Discover Nearby Food Banks : Connect with local resources through
             <span className="font-[Poppins] text-[#185013]"> {" "}AAHAAR</span>
+          </p>
+          <p className="text-center mt-4">
+            Want to know your location?{" "}
+            <span
+              style={{ color: "blue", cursor: "pointer" }}
+              onClick={handleLocationClick}
+            >
+              Click here
+            </span>
           </p>
         </div>
       </div>

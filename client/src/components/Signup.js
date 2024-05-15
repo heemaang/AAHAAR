@@ -11,10 +11,10 @@ const Signup = () => {
     confirmPassword: '',
     country: '',
     fullAddress: '',
-    profilePhoto: null
+    //profilePhoto: null
   });
 
-  const { name, email, mobileNo, userName, password, confirmPassword, country, fullAddress, profilePhoto } = formData;
+  const { name, email, mobileNo, userName, password, confirmPassword, country, fullAddress } = formData;
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -22,7 +22,7 @@ const Signup = () => {
     e.preventDefault();
     // Send form data to backend for signup
     try {
-      const res = await axios.post('/api/auth/signup', formData);
+      const res = await axios.post('http://localhost:3001/api/auth/signup', formData);
       console.log(res.data);
       // Redirect to login page after successful signup
       // You can use react-router-dom's useHistory hook for redirection
@@ -43,7 +43,6 @@ const Signup = () => {
         <input type="password" name="confirmPassword" value={confirmPassword} onChange={onChange} placeholder="Confirm Password" required />
         <input type="text" name="country" value={country} onChange={onChange} placeholder="Country" />
         <input type="text" name="fullAddress" value={fullAddress} onChange={onChange} placeholder="Full Address" />
-        <input type="file" name="profilePhoto" onChange={onChange} accept="image/*" />
         <button type="submit">Signup</button>
       </form>
     </div>

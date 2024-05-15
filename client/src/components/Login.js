@@ -181,6 +181,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import axios from 'axios';
+import Home from '../screens/Home';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -196,7 +197,7 @@ const Login = () => {
     e.preventDefault();
     // Send form data to backend for login
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post('http://localhost:3001/api/auth/login', formData);
       console.log(res.data);
       // Redirect to dashboard or profile page after successful login
       // You can use react-router-dom's useHistory hook for redirection
@@ -211,7 +212,7 @@ const Login = () => {
       <form onSubmit={onSubmit}>
         <input type="text" name="emailOrUserName" value={emailOrUserName} onChange={onChange} placeholder="Email or Username" required />
         <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
-        <button type="submit">Login</button>
+        <button type="submit"><Link to="/">Login</Link></button>
       </form>
       <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
     </div>
