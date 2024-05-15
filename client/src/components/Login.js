@@ -179,9 +179,8 @@
 // export default Login;
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Home from '../screens/Home';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -191,30 +190,73 @@ const Login = () => {
 
   const { emailOrUserName, password } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    // Send form data to backend for login
     try {
       const res = await axios.post('http://localhost:3001/api/auth/login', formData);
       console.log(res.data);
       // Redirect to dashboard or profile page after successful login
-      // You can use react-router-dom's useHistory hook for redirection
     } catch (err) {
       console.error(err.response.data);
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={onSubmit}>
-        <input type="text" name="emailOrUserName" value={emailOrUserName} onChange={onChange} placeholder="Email or Username" required />
-        <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
-        <button type="submit"><Link to="/">Login</Link></button>
-      </form>
-      <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="w-3/5 mr-16">
+        <img
+          className="h-screen w-full"
+          src="./Rectangle 1.png"
+          alt="loginpage"
+        />
+      </div>
+
+      <div className="w-1/2">
+        <div className="flex justify-center items-center mb-8">
+          <img
+            className=" mb-[150px] w-24 h-24 mr-4"
+            src="./Logo.png"
+            alt="logo"
+          />
+          <div className='mb-[150px]'>
+            <h1 className="font-[800] text-4xl font-['Poppins'] text-[50px] mb-2">Aahaar</h1>
+          </div>
+        </div>
+        <form onSubmit={onSubmit} className="space-y-4 ml-[120px]">
+          <input
+            type="text"
+            name="emailOrUserName"
+            value={emailOrUserName}
+            onChange={onChange}
+            placeholder="Email or Username"
+            className="w-5/6 flex bg-gray-100 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={onChange}
+            placeholder="Password"
+            className="w-5/6 mb-[100px] bg-gray-100 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+          <button
+            type="submit"
+            className="w-5/6 bg-green-900 text-white font-bold py-3 rounded-lg shadow-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500"
+          >
+            Login
+          </button>
+        </form>
+        <p className="text-center mt-4">
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-green-800 font-bold">
+            Sign up here
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };

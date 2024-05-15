@@ -330,6 +330,17 @@ const ChatBotComponent = () => {
       trigger: "what does the website do?",
     },
     {
+      id: "UserQuestion",
+      user: true,
+      trigger: "How will it work?",
+    },
+    {
+      id: "How will it work?",
+      message: "Navigate through our website to know more.",
+      trigger: "For further information, feel free to ask any questions.",
+    },
+
+    {
       id: "what does the website do?",
       message: "Our website is aimed at providing support and information about NGOs.",
       trigger: "For further information, feel free to ask any questions.",
